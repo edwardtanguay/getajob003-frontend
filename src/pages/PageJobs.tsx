@@ -1,26 +1,10 @@
-import { useState, useEffect } from 'react';
-import axios from 'axios';
-
-type Job = {
-    id: number;
-    title: string;
-    company: string;
-    description: string;
-    url: string;
-    skillList: string;
-    todo: string;
-};
-
-const url = 'http://localhost:3011'; 
+import { useContext } from 'react';
+import { AppContext } from '../appContext';
+import { Job } from '../types';
 
 export const PageJobs = () => {
-	const [jobs, setJobs] = useState<Job[]>([]);
+	const { jobs } = useContext(AppContext);
 
-	useEffect(() => {
-		(async () => {
-			setJobs((await axios.get(`${url}/jobs`)).data);
-		})();
-	}, []);
 	return (
 		<div className="page pageJobs">
 			<div className="jobs">
