@@ -15,3 +15,10 @@ export type Skill = {
 	url: string;
 	description: string;
 }
+
+export type Todo = {
+	todoText: string;
+	company: string;
+	title: string;
+	url: string;
+}
