@@ -22,3 +22,10 @@ export type Todo = {
 	title: string;
 	url: string;
 }
+
+export type TotaledSkill = {
+	skill: Skill;
+	total: number;
+	isOpen: boolean;
+	lookupInfoLink: string;
+}

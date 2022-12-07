@@ -2,19 +2,19 @@ import { useContext } from 'react';
 import { AppContext } from '../appContext';
 
 export const PageSkills = () => {
-	const { totaledSkills } = useContext(AppContext);
+	const { totaledSkills, handleToggleTotaledSkill } = useContext(AppContext);
 	return (
 		<div className="page pageSkills">
 			<h2>Skills</h2>
 			<div className="totaledSkills">
 				{totaledSkills.map((totaledSkill, i) => {
 					return (
-						<div
+						<div key={i}
 							className={`totaledSkill ${
 								totaledSkill.skill.name ? 'found' : 'missing'
 							}`}
 						>
-							<div className="mainArea">
+							<div className="mainArea" onClick={() => handleToggleTotaledSkill(totaledSkill)}>
 								<span className="total">
 									{totaledSkill.total}x
 								</span>{' '}
