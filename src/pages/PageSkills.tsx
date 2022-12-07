@@ -18,12 +18,55 @@ export const PageSkills = () => {
 								<span className="total">
 									{totaledSkill.total}x
 								</span>{' '}
-								<span className="name">
-									{totaledSkill.skill.name}
-								</span>
+								{totaledSkill.skill.name ? (
+									<span className="name">
+										{totaledSkill.skill.name}
+									</span>
+								) : (
+									<span className="name">
+										{totaledSkill.skill.idCode}
+									</span>
+								)}
 							</div>
 							{totaledSkill.isOpen && (
-								<div className="openArea">nnn</div>
+								<div className="openArea">
+									{totaledSkill.skill.name ? (
+										<div className="description">
+											{totaledSkill.skill.description}{' '}
+												<a
+													href={
+														totaledSkill.skill.url
+													}
+													target="_blank"
+												>
+													info
+												</a>{' '}
+												<a
+													href={
+														totaledSkill.lookupInfoLink
+													}
+													target="_blank"
+												>
+													lookup
+												</a>
+										</div>
+									) : (
+										<div className="description">
+											create new entry in backend:
+											<br />
+											\src\data\skillInfos.json
+											<br />
+											<a
+												href={
+													totaledSkill.lookupInfoLink
+												}
+												target="_blank"
+											>
+												lookup
+											</a>
+										</div>
+									)}
+								</div>
 							)}
 						</div>
 					);
