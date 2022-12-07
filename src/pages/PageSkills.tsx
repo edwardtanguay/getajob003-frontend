@@ -9,30 +9,23 @@ export const PageSkills = () => {
 			<div className="totaledSkills">
 				{totaledSkills.map((totaledSkill, i) => {
 					return (
-						<>
-							{totaledSkill.skill.name ? (
-								<div className="totaledSkill found">
-									<div className="name">
-										<span className="total">
-											{totaledSkill.total}x
-										</span>{' '}
-										{totaledSkill.skill.name}
-										{totaledSkill.isOpen && (
-											<div className="openArea">nnn</div>
-										)}
-									</div>
-								</div>
-							) : (
-								<div className="totaledSkill missing">
-									<div className="name">
-										<span className="total">
-											{totaledSkill.total}x
-										</span>{' '}
-										{totaledSkill.skill.idCode}{' '}
-									</div>
-								</div>
+						<div
+							className={`totaledSkill ${
+								totaledSkill.skill.name ? 'found' : 'missing'
+							}`}
+						>
+							<div className="mainArea">
+								<span className="total">
+									{totaledSkill.total}x
+								</span>{' '}
+								<span className="name">
+									{totaledSkill.skill.name}
+								</span>
+							</div>
+							{totaledSkill.isOpen && (
+								<div className="openArea">nnn</div>
 							)}
-						</>
+						</div>
 					);
 				})}
 			</div>
